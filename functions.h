@@ -7,53 +7,45 @@ void setAlarm(string message)
 {
 	
 	string Tmsg = message.substring(0,1)
-	
+	hourAlarm = message.substring(3, 4).toInt()
+	minAlarm  = message.substring(5, 6).toInt()
+
     switch (Tmsg)
 
     {                                      			//                                            0123456
     case 'A1':                            			// we are setting Alarm 1 from Telegram msg: "A1:0059"
-      hourAlarm1 = message.substring(3, 4).toInt()
-	  minAlarm1  = message.substring(5, 6).toInt()
       preferences.begin("alarms", false);      		// Open preferences
       preferences.putUInt("hourAlarm1", hourAlarm); // Write the hour value to the preferences
       preferences.putUInt("minAlarm1", minAlarm);   // Write the minute value to the preferences
-	  preferences.putBool("Alarm1", TRUE);   		// Enable A1
+	  preferences.putBool("Alarm1", true);   		// Enable A1
       preferences.end();                           	// Close pereferences
       break;
     case 'A2':                            			// we are setting Alarm 2 from Telegram msg: "A2:2359"
-      hourAlarm1 = message.substring(3, 4).toInt()
-	  minAlarm1  = message.substring(5, 6).toInt()
       preferences.begin("alarms", false);      		// Open preferences
       preferences.putUInt("hourAlarm2", hourAlarm); // Write the hour value to the preferences
       preferences.putUInt("minAlarm2", minAlarm);   // Write the minute value to the preferences
-	  preferences.putBool("Alarm2", TRUE);   		// Enable A2
+	  preferences.putBool("Alarm2", true);   		// Enable A2
       preferences.end();                           // Close pereferences
       break;    
      case 'A3':                            			// we are setting Alarm 3 from Telegram msg: "A3:2359"
-      hourAlarm3 = message.substring(3, 4).toInt()
-	  minAlarm3  = message.substring(5, 6).toInt()
       preferences.begin("alarms", false);      		// Open preferences
       preferences.putUInt("hourAlarm3", hourAlarm); // Write the hour value to the preferences
       preferences.putUInt("minAlarm3", minAlarm);   // Write the minute value to the preferences
-	  preferences.putBool("Alarm3", TRUE);   		// Enable A3
+	  preferences.putBool("Alarm3", true);   		// Enable A3
       preferences.end();                           	// Close pereferences
       break;
     case 'A4':                            			// we are setting Alarm 4 from Telegram msg: "A4:2359"
-      hourAlarm4 = message.substring(3, 4).toInt()
-	  minAlarm4  = message.substring(5, 6).toInt()
       preferences.begin("alarms", false);      		// Open preferences
       preferences.putUInt("hourAlarm4", hourAlarm); // Write the hour value to the preferences
       preferences.putUInt("minAlarm4", minAlarm);   // Write the minute value to the preferences
-	  preferences.putBool("Alarm4", TRUE);   		// Enable A4
+	  preferences.putBool("Alarm4", true);   		// Enable A4
       preferences.end();                            // Close pereferences
       break;   
 	case 'A5':                            			// we are setting Alarm 5 from Telegram msg: "A5:2359"
-      hourAlarm5 = message.substring(3, 4).toInt()
-	  minAlarm5  = message.substring(5, 6).toInt()
       preferences.begin("alarms", false);      		// Open preferences
       preferences.putUInt("hourAlarm5", hourAlarm); // Write the hour value to the preferences
       preferences.putUInt("minAlarm5", minAlarm);   // Write the minute value to the preferences
-	  preferences.putBool("Alarm5", TRUE);   		// Enable A5
+	  preferences.putBool("Alarm5", true);   		// Enable A5
       preferences.end();                            // Close pereferences
       break;    
     }
@@ -69,17 +61,17 @@ void disableAlarm()
 // we are disabling all the alarms when receiving Telegram msg: "Azzera"
 
       preferences.begin("alarms", false);      		// Open preferences
-	  preferences.putBool("Alarm1", FALSE);   		// disable A1
-	  preferences.putBool("Alarm2", FALSE);   		// disable A2
-	  preferences.putBool("Alarm3", FALSE);   		// disable A3
-	  preferences.putBool("Alarm4", FALSE);   		// disable A4
-	  preferences.putBool("Alarm5", FALSE);   		// disable A5
+	  preferences.putBool("Alarm1", false);   		// disable A1
+	  preferences.putBool("Alarm2", false);   		// disable A2
+	  preferences.putBool("Alarm3", false);   		// disable A3
+	  preferences.putBool("Alarm4", false);   		// disable A4
+	  preferences.putBool("Alarm5", false);   		// disable A5
       preferences.end();                            // Close pereferences
   }
  
   
 
-// Function to get the Alarm settings from non-volatile memory
+// Function to get all enabled alarms settings from non-volatile memory
 // Parameters:
 // None
 // Returns:
