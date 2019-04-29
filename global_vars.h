@@ -15,3 +15,4 @@ int hourAlarm4;          // Store the alarm hour
 int minAlarm4;           // Store the alarm minute
 int hourAlarm5;          // Store the alarm hour
 int minAlarm5;           // Store the alarm minute
+int AlrArray[ 5 ][ 3 ] = { { false, 0, 0 }, { false, 0, 0 }, { false, 0, 0 }, { false, 0, 0 }, { false, 0, 0 } };
